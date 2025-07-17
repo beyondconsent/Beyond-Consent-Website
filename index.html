@@ -1,0 +1,1081 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beyond Consent - Podcast</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>Beyond Consent</h2>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="#" class="nav-link active" data-page="home">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link" data-page="about">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link" data-page="episodes">Episodes</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link" data-page="resources">Resources</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link" data-page="blog">Blog</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link" data-page="contact">Contact</a>
+                </li>
+            </ul>
+            <div class="nav-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HOME PAGE -->
+    <div id="home-page" class="page active">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-container">
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <span class="status-dot"></span>
+                        New Episode Available
+                    </div>
+                    <h1 class="hero-title">Beyond Consent</h1>
+                    <p class="hero-subtitle">Empowering survivors through legal knowledge and community support</p>
+                    <p class="hero-description">
+                        A podcast dedicated to exploring digital harassment, legal rights, and survivor advocacy. 
+                        Join us as we break down complex legal concepts and provide practical guidance for those 
+                        navigating consent violations in the digital age.
+                    </p>
+                    <div class="hero-buttons">
+                        <button class="btn btn-primary" onclick="playLatestEpisode()">
+                            <i class="fas fa-play"></i> Play Latest Episode
+                        </button>
+                        <button class="btn btn-secondary" onclick="showPage('episodes')">
+                            <i class="fas fa-list"></i> Browse Episodes
+                        </button>
+                    </div>
+                    <div class="subscribe-buttons">
+                        <a href="#" class="subscribe-btn apple">
+                            <i class="fab fa-apple"></i> Apple Podcasts
+                        </a>
+                        <a href="#" class="subscribe-btn spotify">
+                            <i class="fab fa-spotify"></i> Spotify
+                        </a>
+                        <a href="#" class="subscribe-btn google">
+                            <i class="fab fa-google"></i> Google Podcasts
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="podcast-artwork">
+                        <div class="artwork-placeholder">
+                            <i class="fas fa-microphone"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Episode -->
+        <section class="featured-episode">
+            <div class="container">
+                <h2 class="section-title">Latest Episode</h2>
+                <div class="episode-card featured">
+                    <div class="episode-image">
+                        <div class="episode-placeholder">
+                            <i class="fas fa-headphones"></i>
+                        </div>
+                        <div class="play-overlay">
+                            <button class="play-btn" onclick="togglePlay()">
+                                <i class="fas fa-play"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="episode-content">
+                        <div class="episode-header">
+                            <span class="episode-number">Episode 15</span>
+                            <span class="episode-category">Legal Advice</span>
+                        </div>
+                        <h3 class="episode-title">Understanding Digital Consent Laws</h3>
+                        <p class="episode-description">
+                            In this episode, we explore the evolving landscape of digital consent laws 
+                            and how they protect individuals from online harassment and exploitation.
+                        </p>
+                        <div class="episode-meta">
+                            <span class="episode-date">
+                                <i class="fas fa-calendar"></i> March 15, 2024
+                            </span>
+                            <span class="episode-duration">
+                                <i class="fas fa-clock"></i> 45 min
+                            </span>
+                            <span class="episode-downloads">
+                                <i class="fas fa-download"></i> 12.5K
+                            </span>
+                        </div>
+                        <div class="audio-player">
+                            <button class="play-btn" onclick="togglePlay()">
+                                <i class="fas fa-play"></i>
+                            </button>
+                            <div class="progress-container">
+                                <div class="progress-bar">
+                                    <div class="progress" id="progress"></div>
+                                </div>
+                                <div class="time-display">
+                                    <span class="current-time" id="currentTime">0:00</span>
+                                    <span class="total-time">45:23</span>
+                                </div>
+                            </div>
+                            <div class="volume-control">
+                                <i class="fas fa-volume-up"></i>
+                                <input type="range" class="volume-slider" min="0" max="100" value="50">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+  <!-- Latest Blogs Tile Section -->
+<section class="latest-blogs">
+  <div class="container">
+    <div class="blogs-header">
+      <h2 class="section-title">Latest from the Blog</h2>
+      <a href="#" class="view-all-link" onclick="showPage('blog')">View All Articles <i class="fas fa-arrow-right"></i></a>
+    </div>
+    <div class="blogs-tile-grid">
+      <!-- Blog Tile 1 -->
+      <article class="blog-tile">
+        <div class="blog-tile-image">
+          <i class="fas fa-newspaper"></i>
+        </div>
+        <div class="blog-tile-content">
+          <span class="blog-category">Legal Analysis</span>
+          <h3 class="blog-title">New Legislation on Digital Consent</h3>
+          <p class="blog-excerpt">Recent legislative changes are strengthening protections for digital consent violations...</p>
+          <div class="blog-meta">
+            <span class="blog-date">March 10, 2024</span>
+            <span class="blog-read-time">5 min read</span>
+          </div>
+        </div>
+      </article>
+      <!-- Blog Tile 2 -->
+      <article class="blog-tile">
+        <div class="blog-tile-image">
+          <i class="fas fa-balance-scale"></i>
+        </div>
+        <div class="blog-tile-content">
+          <span class="blog-category">Case Study</span>
+          <h3 class="blog-title">Landmark Case: Digital Privacy Rights</h3>
+          <p class="blog-excerpt">Analyzing the implications of recent court decisions on digital privacy...</p>
+          <div class="blog-meta">
+            <span class="blog-date">March 5, 2024</span>
+            <span class="blog-read-time">8 min read</span>
+          </div>
+        </div>
+      </article>
+      <!-- Blog Tile 3 -->
+      <article class="blog-tile">
+        <div class="blog-tile-image">
+          <i class="fas fa-user-shield"></i>
+        </div>
+        <div class="blog-tile-content">
+          <span class="blog-category">Guest Post</span>
+          <h3 class="blog-title">Tech Industry Response to Harassment</h3>
+          <p class="blog-excerpt">Industry expert discusses platform accountability and user protection measures...</p>
+          <div class="blog-meta">
+            <span class="blog-date">February 28, 2024</span>
+            <span class="blog-read-time">6 min read</span>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+        <!-- Newsletter Section -->
+        <section class="newsletter">
+            <div class="container">
+                <div class="newsletter-content">
+                    <div class="newsletter-text">
+                        <h3>Stay Informed</h3>
+                        <p>Get notified about new episodes, legal updates, and important resources for survivors.</p>
+                    </div>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Enter your email address" required>
+                        <button type="submit" class="btn btn-primary">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- ABOUT PAGE -->
+    <!-- ABOUT PAGE -->
+<div id="about-page" class="page">
+    <!-- About Hero Section -->
+    <section class="about-hero">
+        <div class="container">
+            <div class="about-hero-content">
+                <div class="hero-text">
+                    <h1 class="page-title">About Beyond Consent</h1>
+                    <p class="hero-subtitle">Empowering survivors through legal knowledge and community support</p>
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">50+</span>
+                            <span class="stat-label">Episodes</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">25K+</span>
+                            <span class="stat-label">Monthly Listeners</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">3</span>
+                            <span class="stat-label">Years Running</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="podcast-artwork-large">
+                        <div class="artwork-placeholder">
+                            <i class="fas fa-microphone"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission & Story Section -->
+    <section class="mission-story">
+        <div class="container">
+            <div class="content-grid">
+                <div class="story-content">
+                    <div class="section-badge">Our Story</div>
+                    <h2 class="section-title">Bridging Legal Complexity with Survivor Empowerment</h2>
+                    <p class="story-text">
+                        Beyond Consent was born from a critical need to bridge the gap between legal complexity 
+                        and survivor empowerment. Our mission is to make legal knowledge accessible to those who 
+                        need it most, while building a supportive community for survivors of digital harassment 
+                        and consent violations.
+                    </p>
+                    <p class="story-text">
+                        In a world where digital harassment is increasingly common, survivors often face complex 
+                        legal systems without proper guidance. We believe that knowledge is power, and everyone 
+                        deserves to understand their rights and options.
+                    </p>
+                    
+                    <div class="mission-highlights">
+                        <div class="highlight-item">
+                            <div class="highlight-icon">
+                                <i class="fas fa-lightbulb"></i>
+                            </div>
+                            <div class="highlight-content">
+                                <h4>Educational Focus</h4>
+                                <p>Breaking down complex legal concepts into understandable, actionable guidance</p>
+                            </div>
+                        </div>
+                        <div class="highlight-item">
+                            <div class="highlight-icon">
+                                <i class="fas fa-heart"></i>
+                            </div>
+                            <div class="highlight-content">
+                                <h4>Survivor-Centered</h4>
+                                <p>Every episode is designed with survivors' needs and experiences at the forefront</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="values-content">
+                    <h3 class="values-title">Our Core Values</h3>
+                    <div class="values-grid">
+                        <div class="value-card">
+                            <div class="value-icon">
+                                <i class="fas fa-balance-scale"></i>
+                            </div>
+                            <h4>Legal Empowerment</h4>
+                            <p>Making legal knowledge accessible and understandable for everyone</p>
+                        </div>
+                        <div class="value-card">
+                            <div class="value-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <h4>Community Support</h4>
+                            <p>Creating safe spaces for survivors to share experiences and find resources</p>
+                        </div>
+                        <div class="value-card">
+                            <div class="value-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <h4>Digital Safety</h4>
+                            <p>Educating about digital rights and protection in the online world</p>
+                        </div>
+                        <div class="value-card">
+                            <div class="value-icon">
+                                <i class="fas fa-hands-helping"></i>
+                            </div>
+                            <h4>Compassionate Advocacy</h4>
+                            <p>Approaching every topic with empathy and understanding</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rectangular Host Panel -->
+    <section class="host-panel">
+        <div class="container">
+            <div class="host-panel-card">
+                <div class="host-image-section">
+                    <div class="host-photo">
+                        <div class="host-placeholder">
+                            <i class="fas fa-user"></i>
+                        </div>
+                    </div>
+                    <div class="host-social">
+                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="host-info-section">
+                    <div class="host-header">
+                        <h3 class="host-name">Sarah Johnson, JD</h3>
+                        <p class="host-title">Host & Legal Advocate</p>
+                        <div class="host-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Boston, MA</span>
+                        </div>
+                    </div>
+                    
+                    <div class="host-bio">
+                        <p>
+                            Sarah is a practicing attorney specializing in digital rights and privacy law. 
+                            With over 8 years of experience in victim advocacy, she brings both legal expertise 
+                            and compassionate understanding to every episode.
+                        </p>
+                        <p>
+                            Her work has been featured in major legal publications, and she has testified 
+                            before Congress on digital consent legislation. Sarah is passionate about making 
+                            legal knowledge accessible to those who need it most.
+                        </p>
+                    </div>
+                    
+                    <div class="host-credentials">
+                        <div class="credential-item">
+                            <i class="fas fa-graduation-cap"></i>
+                            <span>JD, Harvard Law School</span>
+                        </div>
+                        <div class="credential-item">
+                            <i class="fas fa-certificate"></i>
+                            <span>Digital Rights Specialist</span>
+                        </div>
+                        <div class="credential-item">
+                            <i class="fas fa-award"></i>
+                            <span>Victim Advocate Certified</span>
+                        </div>
+                        <div class="credential-item">
+                            <i class="fas fa-briefcase"></i>
+                            <span>8+ Years Experience</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="host-contact-section">
+                    <h4>Get in Touch</h4>
+                    <div class="contact-options">
+                        <a href="#" class="contact-btn primary">
+                            <i class="fas fa-envelope"></i>
+                            Email Sarah
+                        </a>
+                        <a href="#" class="contact-btn secondary">
+                            <i class="fas fa-calendar"></i>
+                            Book Consultation
+                        </a>
+                    </div>
+                    <div class="host-availability">
+                        <i class="fas fa-clock"></i>
+                        <span>Available for guest interviews and speaking engagements</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact & Recognition Section -->
+    <section class="impact-section">
+        <div class="container">
+            <div class="impact-grid">
+                <div class="impact-content">
+                    <h2 class="section-title">Making a Real Impact</h2>
+                    <p class="impact-description">
+                        Beyond Consent has helped thousands of survivors understand their rights and find the 
+                        support they need. Our community-driven approach has created lasting change.
+                    </p>
+                    
+                    <div class="impact-stats">
+                        <div class="impact-stat">
+                            <span class="stat-number">10K+</span>
+                            <span class="stat-label">Lives Impacted</span>
+                        </div>
+                        <div class="impact-stat">
+                            <span class="stat-number">500+</span>
+                            <span class="stat-label">Legal Resources Shared</span>
+                        </div>
+                        <div class="impact-stat">
+                            <span class="stat-number">50+</span>
+                            <span class="stat-label">Expert Guests</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="recognition-content">
+                    <h3>Recognition & Awards</h3>
+                    <div class="awards-list">
+                        <div class="award-item">
+                            <i class="fas fa-trophy"></i>
+                            <div>
+                                <h4>Best Legal Podcast 2023</h4>
+                                <p>Legal Technology Association</p>
+                            </div>
+                        </div>
+                        <div class="award-item">
+                            <i class="fas fa-star"></i>
+                            <div>
+                                <h4>Top 10 Advocacy Podcasts</h4>
+                                <p>Podcast Magazine</p>
+                            </div>
+                        </div>
+                        <div class="award-item">
+                            <i class="fas fa-medal"></i>
+                            <div>
+                                <h4>Community Impact Award</h4>
+                                <p>Digital Rights Foundation</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+
+    <!-- EPISODES PAGE -->
+    <div id="episodes-page" class="page">
+        <section class="page-header">
+            <div class="container">
+                <h1 class="page-title">All Episodes</h1>
+                <p class="page-subtitle">Explore our complete library of episodes covering digital rights, legal advice, and survivor stories</p>
+            </div>
+        </section>
+
+        <!-- Episodes Controls -->
+        <section class="episodes-controls">
+            <div class="container">
+                <div class="controls-wrapper">
+                    <div class="search-filter-group">
+                        <div class="search-box">
+                            <i class="fas fa-search"></i>
+                            <input type="text" id="episodeSearch" placeholder="Search episodes...">
+                        </div>
+                        <div class="filter-group">
+                            <select id="categoryFilter" class="filter-select">
+                                <option value="all">All Categories</option>
+                                <option value="legal-advice">Legal Advice</option>
+                                <option value="digital-harassment">Digital Harassment</option>
+                                <option value="survivor-stories">Survivor Stories</option>
+                                <option value="prevention">Prevention</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="episodes-stats">
+                        <span class="total-episodes">Showing <span id="episodeCount">15</span> episodes</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Episodes Grid -->
+        <section class="episodes-listing">
+            <div class="container">
+                <div class="episodes-grid" id="episodesGrid">
+                    <!-- Episodes will be populated by JavaScript -->
+                </div>
+                <div class="load-more">
+                    <button class="btn btn-secondary" onclick="loadMoreEpisodes()">
+                        Load More Episodes
+                    </button>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- RESOURCES PAGE -->
+    <div id="resources-page" class="page">
+        <section class="page-header">
+            <div class="container">
+                <h1 class="page-title">Resources for Survivors</h1>
+                <p class="page-subtitle">Find support, legal aid, and practical guidance</p>
+            </div>
+        </section>
+
+        <section class="resources-content">
+            <div class="container">
+                <div class="resources-grid">
+                    <div class="resource-category">
+                        <div class="resource-icon">
+                            <i class="fas fa-gavel"></i>
+                        </div>
+                        <h3>Legal Aid</h3>
+                        <ul class="resource-list">
+                            <li><a href="#">National Legal Aid Hotline</a></li>
+                            <li><a href="#">Pro Bono Legal Services</a></li>
+                            <li><a href="#">Digital Rights Foundation</a></li>
+                            <li><a href="#">Cyber Civil Rights Initiative</a></li>
+                        </ul>
+                        <button class="btn btn-outline">Download Legal Guide</button>
+                    </div>
+                    <div class="resource-category">
+                        <div class="resource-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <h3>Mental Health Support</h3>
+                        <ul class="resource-list">
+                            <li><a href="#">Crisis Text Line: Text HOME to 741741</a></li>
+                            <li><a href="#">RAINN National Hotline: 1-800-656-4673</a></li>
+                            <li><a href="#">BetterHelp Online Therapy</a></li>
+                            <li><a href="#">Local Support Groups</a></li>
+                        </ul>
+                        <button class="btn btn-outline">Find Therapists</button>
+                    </div>
+                    <div class="resource-category">
+                        <div class="resource-icon">
+                            <i class="fas fa-flag"></i>
+                        </div>
+                        <h3>Reporting Mechanisms</h3>
+                        <ul class="resource-list">
+                            <li><a href="#">FBI Internet Crime Complaint Center</a></li>
+                            <li><a href="#">Platform Reporting Tools</a></li>
+                            <li><a href="#">State Attorney General Offices</a></li>
+                            <li><a href="#">Local Law Enforcement</a></li>
+                        </ul>
+                        <button class="btn btn-outline">Report Incident</button>
+                    </div>
+                    <div class="resource-category">
+                        <div class="resource-icon">
+                            <i class="fas fa-download"></i>
+                        </div>
+                        <h3>Downloadable Guides</h3>
+                        <ul class="resource-list">
+                            <li><a href="#">Digital Safety Checklist</a></li>
+                            <li><a href="#">Evidence Collection Guide</a></li>
+                            <li><a href="#">Know Your Rights Handbook</a></li>
+                            <li><a href="#">Emergency Contact Template</a></li>
+                        </ul>
+                        <button class="btn btn-outline">Download All</button>
+                    </div>
+                </div>
+
+                <div class="emergency-notice">
+                    <div class="emergency-icon">
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </div>
+                    <div class="emergency-content">
+                        <h4>In Immediate Danger?</h4>
+                        <p>If you are in immediate physical danger, please call 911 or your local emergency services.</p>
+                        <div class="emergency-contacts">
+                            <a href="tel:911" class="emergency-btn">Call 911</a>
+                            <a href="tel:18006564673" class="emergency-btn">RAINN Hotline</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- BLOG PAGE -->
+    <div id="blog-page" class="page">
+        <section class="page-header">
+            <div class="container">
+                <h1 class="page-title">Blog & Articles</h1>
+                <p class="page-subtitle">Legal analysis, case studies, and expert insights</p>
+            </div>
+        </section>
+
+        <section class="blog-content">
+            <div class="container">
+                <div class="blog-grid">
+                    <article class="blog-post">
+                        <div class="post-image">
+                            <div class="post-placeholder">
+                                <i class="fas fa-newspaper"></i>
+                            </div>
+                        </div>
+                        <div class="post-content">
+                            <span class="post-category">Legal Analysis</span>
+                            <h3 class="post-title">New Legislation on Digital Consent</h3>
+                            <p class="post-excerpt">
+                                Recent legislative changes are strengthening protections for digital consent violations...
+                            </p>
+                            <div class="post-meta">
+                                <span class="post-date">March 10, 2024</span>
+                                <span class="post-read-time">5 min read</span>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="blog-post">
+                        <div class="post-image">
+                            <div class="post-placeholder">
+                                <i class="fas fa-newspaper"></i>
+                            </div>
+                        </div>
+                        <div class="post-content">
+                            <span class="post-category">Case Study</span>
+                            <h3 class="post-title">Landmark Case: Digital Privacy Rights</h3>
+                            <p class="post-excerpt">
+                                Analyzing the implications of recent court decisions on digital privacy...
+                            </p>
+                            <div class="post-meta">
+                                <span class="post-date">March 5, 2024</span>
+                                <span class="post-read-time">8 min read</span>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="blog-post">
+                        <div class="post-image">
+                            <div class="post-placeholder">
+                                <i class="fas fa-newspaper"></i>
+                            </div>
+                        </div>
+                        <div class="post-content">
+                            <span class="post-category">Guest Post</span>
+                            <h3 class="post-title">Tech Industry Response to Harassment</h3>
+                            <p class="post-excerpt">
+                                Industry expert discusses platform accountability and user protection measures...
+                            </p>
+                            <div class="post-meta">
+                                <span class="post-date">February 28, 2024</span>
+                                <span class="post-read-time">6 min read</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- CONTACT PAGE -->
+    <!-- CONTACT PAGE -->
+<div id="contact-page" class="page">
+    <!-- Contact Hero Section -->
+    <section class="contact-hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <i class="fas fa-envelope"></i>
+                    Get in Touch
+                </div>
+                <h1 class="page-title">We're Here to Help</h1>
+                <p class="hero-subtitle">
+                    Whether you have questions, want to share your story, or need support, 
+                    we're committed to providing a safe space for meaningful conversations.
+                </p>
+                <div class="response-promise">
+                    <i class="fas fa-clock"></i>
+                    <span>We typically respond within 24 hours</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Contact Section -->
+    <section class="contact-main">
+        <div class="container">
+            <div class="contact-wrapper">
+                <!-- Contact Information Card -->
+                <div class="contact-info-card">
+                    <h2 class="card-title">Contact Information</h2>
+                    <p class="card-description">
+                        Choose the method that feels most comfortable for you. 
+                        All communications are handled with care and confidentiality.
+                    </p>
+                    
+                    <div class="contact-methods">
+                        <div class="contact-method">
+                            <div class="method-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="method-content">
+                                <h4>General Inquiries</h4>
+                                <p>hello@beyondconsent.com</p>
+                                <span class="method-note">For general questions and feedback</span>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-method">
+                            <div class="method-icon">
+                                <i class="fas fa-newspaper"></i>
+                            </div>
+                            <div class="method-content">
+                                <h4>Press & Media</h4>
+                                <p>press@beyondconsent.com</p>
+                                <span class="method-note">Media inquiries and interview requests</span>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-method">
+                            <div class="method-icon">
+                                <i class="fas fa-handshake"></i>
+                            </div>
+                            <div class="method-content">
+                                <h4>Partnerships</h4>
+                                <p>partners@beyondconsent.com</p>
+                                <span class="method-note">Collaboration and partnership opportunities</span>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-method">
+                            <div class="method-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <div class="method-content">
+                                <h4>Confidential Support</h4>
+                                <p>support@beyondconsent.com</p>
+                                <span class="method-note">Private and secure communication</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Social Media Links -->
+                    <div class="social-section">
+                        <h4>Follow Our Journey</h4>
+                        <div class="social-links">
+                            <a href="#" class="social-link twitter">
+                                <i class="fab fa-twitter"></i>
+                                <span>Twitter</span>
+                            </a>
+                            <a href="#" class="social-link instagram">
+                                <i class="fab fa-instagram"></i>
+                                <span>Instagram</span>
+                            </a>
+                            <a href="#" class="social-link linkedin">
+                                <i class="fab fa-linkedin"></i>
+                                <span>LinkedIn</span>
+                            </a>
+                            <a href="#" class="social-link facebook">
+                                <i class="fab fa-facebook"></i>
+                                <span>Facebook</span>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Office Information -->
+                    <div class="office-info">
+                        <h4>Our Location</h4>
+                        <div class="office-details">
+                            <div class="office-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <div>
+                                    <p>Boston, Massachusetts</p>
+                                    <span>United States</span>
+                                </div>
+                            </div>
+                            <div class="office-item">
+                                <i class="fas fa-clock"></i>
+                                <div>
+                                    <p>Response Hours</p>
+                                    <span>Monday - Friday, 9 AM - 6 PM EST</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Forms Section -->
+                <div class="contact-forms-card">
+                    <!-- Form Tabs -->
+                    <div class="form-tabs">
+                        <button class="tab-btn active" onclick="showContactTab('general')">
+                            <i class="fas fa-comment"></i>
+                            General Contact
+                        </button>
+                        <button class="tab-btn" onclick="showContactTab('confidential')">
+                            <i class="fas fa-lock"></i>
+                            Confidential
+                        </button>
+                    </div>
+
+                    <!-- General Contact Form -->
+                    <div class="contact-form-container active" id="generalContactForm">
+                        <div class="form-header">
+                            <h3>Send Us a Message</h3>
+                            <p>We'd love to hear from you. Fill out the form below and we'll get back to you as soon as possible.</p>
+                        </div>
+                        
+                        <form class="modern-contact-form" id="generalForm">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="firstName">First Name</label>
+                                    <input type="text" id="firstName" name="firstName" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="lastName">Last Name</label>
+                                    <input type="text" id="lastName" name="lastName" required>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email">Email Address</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="inquiryType">Type of Inquiry</label>
+                                <select id="inquiryType" name="inquiryType" required>
+                                    <option value="">Select an option</option>
+                                    <option value="general">General Question</option>
+                                    <option value="guest">Guest Appearance</option>
+                                    <option value="press">Press Inquiry</option>
+                                    <option value="collaboration">Collaboration</option>
+                                    <option value="feedback">Feedback</option>
+                                    <option value="technical">Technical Support</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="subject">Subject</label>
+                                <input type="text" id="subject" name="subject" placeholder="Brief description of your inquiry">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="message">Message</label>
+                                <textarea id="message" name="message" rows="5" placeholder="Tell us more about your inquiry..." required></textarea>
+                            </div>
+                            
+                            <div class="form-group checkbox-group">
+                                <input type="checkbox" id="newsletter" name="newsletter">
+                                <label for="newsletter">I'd like to receive updates about new episodes and resources</label>
+                            </div>
+                            
+                            <button type="submit" class="submit-btn">
+                                <i class="fas fa-paper-plane"></i>
+                                Send Message
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- Confidential Contact Form -->
+                    <div class="contact-form-container" id="confidentialContactForm">
+                        <div class="confidential-notice">
+                            <div class="notice-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <div class="notice-content">
+                                <h4>Secure & Confidential</h4>
+                                <p>This form uses end-to-end encryption. Your submission will be handled with complete confidentiality and only accessed by our trusted team members.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="form-header">
+                            <h3>Confidential Submission</h3>
+                            <p>Share your story, ask for advice, or request resources in a safe, private environment.</p>
+                        </div>
+                        
+                        <form class="modern-contact-form" id="confidentialForm">
+                            <div class="form-group">
+                                <label for="confSubject">Subject (Optional)</label>
+                                <input type="text" id="confSubject" name="subject" placeholder="You can leave this blank if you prefer">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="confMessage">Your Message</label>
+                                <textarea id="confMessage" name="message" rows="6" placeholder="Share your story, ask for advice, or request resources. Take your time - we're here to listen." required></textarea>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="confContact">Preferred Contact Method (Optional)</label>
+                                <input type="text" id="confContact" name="contact" placeholder="How would you like us to respond? (email, phone, etc.) Leave blank for no response needed">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="urgency">Urgency Level</label>
+                                <select id="urgency" name="urgency">
+                                    <option value="normal">Normal - Response within 48 hours</option>
+                                    <option value="urgent">Urgent - Response within 24 hours</option>
+                                    <option value="emergency">Emergency - Immediate attention needed</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group checkbox-group">
+                                <input type="checkbox" id="anonymous" name="anonymous">
+                                <label for="anonymous">Submit anonymously (no response expected)</label>
+                            </div>
+                            
+                            <div class="privacy-notice">
+                                <i class="fas fa-info-circle"></i>
+                                <p>Your privacy is our priority. We never share personal information and all communications are kept strictly confidential.</p>
+                            </div>
+                            
+                            <button type="submit" class="submit-btn confidential">
+                                <i class="fas fa-lock"></i>
+                                Submit Confidentially
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Emergency Resources Section -->
+    <section class="emergency-resources">
+        <div class="container">
+            <div class="emergency-card">
+                <div class="emergency-header">
+                    <div class="emergency-icon">
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </div>
+                    <div class="emergency-content">
+                        <h3>Need Immediate Help?</h3>
+                        <p>If you're in immediate danger or need crisis support, please reach out to these resources right away.</p>
+                    </div>
+                </div>
+                
+                <div class="emergency-contacts">
+                    <div class="emergency-contact">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-info">
+                            <h4>Emergency Services</h4>
+                            <a href="tel:911" class="emergency-link">Call 911</a>
+                            <p>For immediate physical danger</p>
+                        </div>
+                    </div>
+                    
+                    <div class="emergency-contact">
+                        <div class="contact-icon">
+                            <i class="fas fa-comments"></i>
+                        </div>
+                        <div class="contact-info">
+                            <h4>Crisis Text Line</h4>
+                            <a href="sms:741741" class="emergency-link">Text HOME to 741741</a>
+                            <p>24/7 crisis support via text</p>
+                        </div>
+                    </div>
+                    
+                    <div class="emergency-contact">
+                        <div class="contact-icon">
+                            <i class="fas fa-headset"></i>
+                        </div>
+                        <div class="contact-info">
+                            <h4>RAINN National Hotline</h4>
+                            <a href="tel:18006564673" class="emergency-link">1-800-656-4673</a>
+                            <p>National Sexual Assault Hotline</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="contact-faq">
+        <div class="container">
+            <div class="faq-header">
+                <h2>Frequently Asked Questions</h2>
+                <p>Quick answers to common questions about getting in touch</p>
+            </div>
+            
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <h4>How quickly do you respond to messages?</h4>
+                    <p>We typically respond to general inquiries within 24 hours during business days. Confidential submissions may take up to 48 hours to ensure proper care and attention.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h4>Is my information kept confidential?</h4>
+                    <p>Absolutely. All communications are handled with strict confidentiality. We never share personal information without explicit consent, and our confidential form uses additional security measures.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h4>Can I be a guest on the podcast?</h4>
+                    <p>We welcome guest inquiries! Please use our general contact form and select "Guest Appearance" as your inquiry type. Include information about your expertise and story.</p>
+                </div>
+                
+               
+            </div>
+        </div>
+    </section>
+</div>
+
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Beyond Consent</h4>
+                    <p>Empowering survivors through legal knowledge and community support.</p>
+                    <div class="footer-social">
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="#" onclick="showPage('home')">Home</a></li>
+                        <li><a href="#" onclick="showPage('about')">About</a></li>
+                        <li><a href="#" onclick="showPage('episodes')">Episodes</a></li>
+                        <li><a href="#" onclick="showPage('resources')">Resources</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul class="footer-links">
+                        <li><a href="#" onclick="showPage('resources')">Crisis Hotlines</a></li>
+                        <li><a href="#" onclick="showPage('resources')">Legal Aid</a></li>
+                        <li><a href="#" onclick="showPage('resources')">Support Groups</a></li>
+                        <li><a href="#" onclick="showPage('resources')">Safety Guides</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Disclaimer</a></li>
+                        <li><a href="#">Accessibility</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Beyond Consent. All rights reserved.</p>
+                <p class="disclaimer">This podcast provides general information and should not be considered legal advice.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
